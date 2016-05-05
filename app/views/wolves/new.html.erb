@@ -1,6 +1,21 @@
 <h1>Create new Wolf</h1>
 
 
+<% if @wolf.errors.any? %>
+  <ul>
+    <% @wolf.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>  
+  </ul>
+<% end %>
+
+<% if flash[:alert] %>
+  <div>
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
+
 <%= form_for @wolf do |w|%>
 <div>
   <%= w.label :what_is_your_name %>
@@ -17,8 +32,9 @@
 </div>
 
 <div>
-  <%= w.submit %>
+  <%= w.submit "JOIN THE PACK" %>
 </div>
 
 <% end %>
 
+<%= button_to "Back", :wolves, method: :get %>

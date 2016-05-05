@@ -1,7 +1,13 @@
 <h1>Wolves#index</h1>
 
-<% @wolves.each do |w| %>
-<%= w.name %>
-<img src="<%= w.image %>" alt="">
-<%= w.description %>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
 <% end %>
+
+<% @wolves.each do |w| %>
+  <%= w.name %>
+  <img src="<%= w.image %>" alt="">
+  <%= w.description %>
+<% end %>
+
+<%= button_to "NEW PACK MEMBER", new_wolf_path, method: :get %>
