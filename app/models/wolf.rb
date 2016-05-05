@@ -1,6 +1,6 @@
 class Wolf < ActiveRecord::Base
 
-  validates :name, presence: true, uniquiness: true
+  validates :name, presence: true, uniqueness: true
   validates :image, presence: true
   validates :description, presence: true
   
