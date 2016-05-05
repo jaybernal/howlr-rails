@@ -1,13 +1,20 @@
-<h1>Wolves#index</h1>
 
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
+<div>
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+</div>
 
-<% @wolves.each do |w| %>
-  <%= w.name %>
-  <img src="<%= w.image %>" alt="">
-  <%= w.description %>
-<% end %>
+<div>
+  <ul>
+    <% @wolves.each do |w| %>
+      <li><%= w.name %></li>
+      <li><img src="<%= w.image %>" alt=""></li>
+      <li><%= w.description %></li>
+    <% end %>
+  </ul>
+</div>
 
-<%= button_to "NEW PACK MEMBER", new_wolf_path, method: :get %>
+<div>
+  <%= button_to "NEW PACK MEMBER", new_wolf_path, method: :get %>
+</div>
