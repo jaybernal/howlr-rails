@@ -1,2 +1,7 @@
 <h1>Wolves#index</h1>
-<p>Find me in app/views/wolves/index.html.erb</p>
+
+<% @wolves.each do |w| %>
+<%= w.name %>
+<img src="<%= w.image %>" alt="">
+<%= w.description %>
+<% end %>

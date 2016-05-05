@@ -15,6 +15,7 @@ class HowlsController < ApplicationController
 
   def index
     @howls = Howl.all
+
   end
 
   private

@@ -1,2 +1,24 @@
-<h1>Wolves#new</h1>
-<p>Find me in app/views/wolves/new.html.erb</p>
+<h1>Create new Wolf</h1>
+
+
+<%= form_for @wolf do |w|%>
+<div>
+  <%= w.label :what_is_your_name %>
+  <%= w.text_field :name %>
+</div>
+<div>
+  <%= w.label :post_image%>
+  <%= w.text_field :image %>
+</div>
+
+<div>
+  <%= w.label :description%>
+  <%= w.text_field :description %>
+</div>
+
+<div>
+  <%= w.submit %>
+</div>
+
+<% end %>
+

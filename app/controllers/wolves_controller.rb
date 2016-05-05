@@ -5,7 +5,7 @@ class WolvesController < ApplicationController
 
   def create
     @wolf = Wolf.new(wolf_params)
-    if wolf.save
+    if @wolf.save
       redirect_to :wolves, notice: "Successful" #goes to index
     else
       flash.now[:alert] = "Not Saved"
