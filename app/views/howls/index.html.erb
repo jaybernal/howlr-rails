@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 <%= render partial: "layouts/button" %>
-=======
->>>>>>> master
+
 
 <% if flash[:notice] %>
 <p><%= flash[:notice] %></p>
@@ -23,6 +21,7 @@
       <li><%= h.wolf.name %></li>
       <li><img src="<%= h.image %>" alt=""></li>
       <li><%= h.text %></li>
+      <li><%= link_to "Delete Howl", howl_path(h), :method=>:delete %></li>
     <% end %>
   </ul>
 </div>
