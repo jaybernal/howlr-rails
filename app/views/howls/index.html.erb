@@ -1,14 +1,29 @@
+<<<<<<< HEAD
 <%= render partial: "layouts/button" %>
+=======
+>>>>>>> master
 
-<%= button_to "Need to Howl", new_howl_path, method: :get %>
-<%= button_to "See Pack", :wolves, method: :get %>
+<% if flash[:notice] %>
+<p><%= flash[:notice] %></p>
+<% end %>
+<div class="row">
+  <div class= ".col-sm-4 centered">
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><%= link_to("Need to Howl", controller: "howls", action: "new") %></li>
+      <li role="presentation" class="active"><%= link_to("See Pack", controller: "wolves", action: "index") %></li>
+    </ul>
+  </div>
+</div>
 
 <p>Here are the last five howls from your pack:</p>
 
+<div>
+  <ul>
+    <% @howls.each do |h| %>
+      <li><%= h.wolf.name %></li>
+      <li><img src="<%= h.image %>" alt=""></li>
+      <li><%= h.text %></li>
+    <% end %>
+  </ul>
+</div>
 
-<% @howls.each do |h| %>
-<%= h.wolf.name %>
-<img src="<%= h.image %>" alt="">
-<%= h.text %>
-
-<% end %>
