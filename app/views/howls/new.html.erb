@@ -1,22 +1,41 @@
 <h1>Create new howl</h1>
 
-
-<%= form_for @howl do |h|%>
-<div>
-  <%= h.label :what_are_howling %>
-  <%= h.text_field :text %>
-</div>
-<div>
-  <%= h.label :post_image%>
-  <%= h.text_field :image %>
-</div>
-<div>
-  <%= h.label :who_is_howling%>
-  <%= select("howl", "wolf_id", Wolf.all.collect {|w| [ w.name, w.id ] }, {:include_blank => true}) %>
-</div>
-
-<div>
-  <%= h.submit %>
-</div>
+<% if @howl.errors.any? %>
+  <ul>
+    <% @howl.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>  
+  </ul>
 <% end %>
 
+<% if flash[:alert] %>
+  <div>
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
+
+<div>
+  <%= form_for @howl do |h|%>
+  <div>
+    <%= h.label :what_are_howling %>
+    <%= h.text_field :text %>
+  </div>
+  <div>
+    <%= h.label :post_image%>
+    <%= h.text_field :image %>
+  </div>
+  <div>
+    <%= h.label :who_is_howling%>
+    <%= select("howl", "wolf_id", Wolf.all.collect {|w| [ w.name, w.id ] }, {:include_blank => true}) %>
+  </div>
+
+  <div>
+    <%= h.submit "Howl"%>
+  </div>
+  <% end %>
+</div>
+
+<div>
+  <%= button_to "Back", :howls, method: :get %>
+</div>
