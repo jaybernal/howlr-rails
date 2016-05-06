@@ -5,7 +5,9 @@
 
 <p>Here are the last five howls from your pack:</p>
 
+<% byebug %>
 <% @howls.each do |h| %>
+
 <%= h.wolf.name %>
 <img src="<%= h.image %>" alt="">
 <%= h.text %>
