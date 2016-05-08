@@ -1,31 +1,33 @@
+<div class="centered main-button-container">
 <%= render partial: "layouts/button" %>
-
+</div>
 
 <% if flash[:notice] %>
 <p><%= flash[:notice] %></p>
 <% end %>
-<div class="row">
-  <div class= ".col-sm-4 centered">
-    <ul class="nav nav-pills">
-      <li role="presentation" class="active"><%= link_to("Need to Howl", controller: "howls", action: "new") %></li>
-      <li role="presentation" class="active"><%= link_to("See Pack", controller: "wolves", action: "index") %></li>
-    </ul>
+
+
+<div class ="container">
+  <div class="row nav-row">
+      <div class="col-xs-6">
+      <%= button_to "Need to Howl", new_howl_path, method: :get, class:"btn btn-primary btn-block center-block" %>
+      </div>
+      <div class="col-xs-6">
+      <%= button_to "See Pack", :wolves, method: :get, class:"btn btn-primary btn-block center-block" %>
+      </div>
   </div>
 </div>
 
-
-<!-- button_to(name = nil, options = nil, html_options = nil, &block) 
- -->
-<%= button_to "Need to Howl", new_howl_path, method: :get, class:"btn btn-primary" %>
-<%= button_to "See Pack", :wolves, method: :get%>
-
-<p>Here are the last five howls from your pack:</p>
+<div class="howler-text">
+  <p>Here are the last five howls from your pack:</p>
+</div>
 
 <div>
   <ul>
     <% @howls.each do |h| %>
       <li><%= h.wolf.name %></li>
-      <li><img src="<%= h.image %>" alt=""></li>
+      <img src="<%= h.wolf.image %>" alt="">
+      <img src="<%= h.image %>" alt="">
       <li><%= h.text %></li>
     <% end %>
   </ul>
