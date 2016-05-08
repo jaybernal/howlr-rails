@@ -15,7 +15,12 @@ class HowlsController < ApplicationController
 
   def index
     @howls = Howl.all
+  end
 
+  def destroy
+    @howl = Howl.find(params[:id])
+    @howl.destroy
+    redirect_to :howls, notice: "Successfully deleted!!!"
   end
 
   private

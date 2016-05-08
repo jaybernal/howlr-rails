@@ -29,6 +29,7 @@
       <img src="<%= h.wolf.image %>" alt="">
       <img src="<%= h.image %>" alt="">
       <li><%= h.text %></li>
+      <li><%= link_to "Delete Howl", howl_path(h), :method=>:delete %></li>
     <% end %>
   </ul>
 </div>
