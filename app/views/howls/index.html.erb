@@ -2,9 +2,11 @@
 <%= render partial: "layouts/button" %>
 </div>
 
-<% if flash[:notice] %>
-<p><%= flash[:notice] %></p>
-<% end %>
+<div class="alert alert-success" role="alert">
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+</div>
 
 
 <div class ="container">
@@ -22,15 +24,27 @@
   <p>Here are the last five howls from your pack:</p>
 </div>
 
-<div>
-  <ul>
-    <% @howls.each do |h| %>
-      <li><%= h.wolf.name %></li>
-      <img src="<%= h.wolf.image %>" alt="">
+<div class="container profile-container">
+  <% @howls.each do |h| %>
+  <div class="profile-wrapper">
+    <div class="howl-name-picture-container">
+      <div class= "col-xs-6 vcenter howl-wolf-name">
+        <%= h.wolf.name.titleize %>
+      </div>
+      <div class="col-xs-6 howl-picture ">
+        <img class ="pull-right" src="<%= h.wolf.image %>" alt="">
+      </div>
+    </div>
+    <div class = "col-xs-12">
       <img src="<%= h.image %>" alt="">
-      <li><%= h.text %></li>
-      <li><%= link_to "Delete Howl", howl_path(h), :method=>:delete %></li>
-    <% end %>
-  </ul>
+    </div>
+    <div class = "col-xs-12 howlr-border-line">
+      <%= h.text %>
+    </div>
+    <div>
+      <%= link_to"", howl_path(h), :method=>:delete, class:"glyphicon glyphicon-trash" %>
+    </div>
+  </div>
+  <% end %>
 </div>
 

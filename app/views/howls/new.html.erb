@@ -17,8 +17,8 @@
 
 <div>
   <%= form_for @howl do |h|%>
-  <div>
-    <%= h.label :what_are_howling %>
+  <div class="input-group">
+    <%= h.label :what_are_howling, class:"form-control"%>
     <%= h.text_field :text %>
   </div>
   <div>
@@ -39,3 +39,10 @@
 <div>
   <%= button_to "Back", :howls, method: :get %>
 </div>
+
+
+
+<!-- <div class="input-group">
+  <input type="text" class="form-control" placeholder="What are you howling" aria-describedby="basic-addon2">
+  <span class="input-group-addon" id="basic-addon2">@example.com</span>
+</div> -->
